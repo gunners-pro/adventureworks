@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 def extract_sales(engine):
     query = \
@@ -20,5 +21,13 @@ def extract_sales(engine):
         JOIN Production.Product AS p
             ON sod.ProductID = p.ProductID; 
         """
+    
+    current_dir = Path(__file__).parent
+    parent_dir = current_dir.parent
+    data = parent_dir / "data"
+    data.mkdir(parents=True, exist_ok=True)
 
-    return pd.read_sql(query, engine)
+    df = pd.read_sql(query, engine)
+    df.to_csv(data / 'sales.csv', index=False)
+
+    return df

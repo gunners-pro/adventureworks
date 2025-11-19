@@ -4,5 +4,7 @@ __pycache__/
 .venv/
 .env
 
+data/*.csv
+
 # VSCode / IDE
 .vscode/
