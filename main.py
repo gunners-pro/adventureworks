@@ -7,6 +7,6 @@ if __name__ == "__main__":
     
     sales = extract_sales(engine)
 
-    sales_transformed = clean_sales(sales)
+    df_sales_clean = clean_sales(sales)
 
-    print(sales_transformed.dtypes)
+    print(df_sales_clean)
