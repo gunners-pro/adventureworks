@@ -10,6 +10,6 @@ if __name__ == "__main__":
 
     df_sales_clean = clean_sales(sales)
 
-    df_transformed = TransformSales.add_column_month(df_sales_clean)
+    df_transformed = TransformSales.expand_date(df_sales_clean, "OrderDate")
 
     print(df_transformed)
